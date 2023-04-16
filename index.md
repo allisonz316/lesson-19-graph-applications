@@ -3,10 +3,10 @@
 **CISC320 Spring 2023 Lesson 14 - Graph Applications**
 
 Group Members:
-* First member alzig@udel.edu
-* Second member enoonan@udel.edu
-* Third member turnerde@udel.edu
-* Fourth member acroce@udel.edu
+* Allison Ziegler alzig@udel.edu
+* Ellie Noonan enoonan@udel.edu
+* Dean Turner turnerde@udel.edu
+* Alexandra Croce acroce@udel.edu
 
 Description of project
 
