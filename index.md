@@ -28,8 +28,8 @@ import networkx as nx
 
 > **Formal Description**: With the help of your grandfather's sketchbook, create a map of the secret chambers on the island as well as the gremlins that guard each path. Each node will represent a secret chamber, each edge will represent a path that can be taken, and each weight will represent the gremlins to be defeated on each path. Using this map, you must determine the order in which you seek each chamber by constructing a Minimum Spanning Tree of the island.
 
->  * Input:
->  * Output:
+>  * Input: An adjacency matrix for a connected undirected graph G=(V,E) with edge weight w.
+>  * Output: A minimum spanning tree of graph G.
 
 **Graph Problem/Algorithm**: [MST]
 
