@@ -19,6 +19,7 @@ $> pip install networkx
 ## Python Environment Setup
 
 ```python
+import depthFirst.py
 import networkx as nx
 ```
 
@@ -56,20 +57,25 @@ import networkx as nx
 
 
 
-# Second Problem Title
+# Skill Web
 
-**Informal Description**: 
+**Many video games inclue a web of different skills you can get for your character.These are usually shown in the form of a web where getting one skill opens up several others. The goal here is to identify all of the skills that will be open to you once a certain skill is unlocked**: 
 
-> **Formal Description**:
->  * Input:
->  * Output:
+> **This problem uses a depth first search to identify all nodes reachable in a directed graph from one specific node.**:
+>  * Input: A directed graph of skills and a specific skill
+>  * Output: A list of reachable skills from that specific skill
 
-**Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
+**Graph Problem/Algorithm**: DFS
 
 
 **Setup code**:
 
-```python
+```
+G = nx.petersen_graph()
+
+print(list(G.nodes))
+nx.draw(G)
+plt.show()
 ```
 
 **Visualization**:
