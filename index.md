@@ -90,7 +90,7 @@ import networkx as nx
 
 
 
-# Mission 3: Copyright-Free Plumbing
+# Mission 3: Let's-a-Go (along the shortest path possible)
 
 **Informal Description**: You've taken on the role of a copyright-free plumber, perhaps of Southern European origin and dressed in at least one of the three primary colors. You know that the princess of an unspecified fungus-related kingdom has been kidnapped by some sort of strange, talking turtle-dragon creature, and it's your mission to save her. To do so, however, you must travel a long way to the fabled "Another Castle." The road is long and winding, but surely there's a way to find the shortest path from your house to your destination, right?
 
