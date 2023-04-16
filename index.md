@@ -90,15 +90,15 @@ import networkx as nx
 
 
 
-# Third Problem Title
+# Mission 3: Copyright-Free Plumbing
 
-**Informal Description**: 
+**Informal Description**: You've taken on the role of a copyright-free plumber, perhaps of Southern European origin and dressed in at least one of the three primary colors. You know that the princess of an unspecified fungus-related kingdom has been kidnapped by some sort of strange, talking turtle-dragon creature, and it's your mission to save her. To do so, however, you must travel a long way to the fabled "Another Castle." The road is long and winding, but surely there's a way to find the shortest path from your house to your destination, right?
 
 > **Formal Description**:
->  * Input:
->  * Output:
+>  * Input: A weighted, undirected graph G, with V vertices and E edges, and a specified source vertex S and target vertex T
+>  * Output: The single-source shortest path from vertex S to vertex T
 
-**Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
+**Graph Problem/Algorithm**: [SSSP/Dijkstra's Algorithm]
 
 
 **Setup code**:
