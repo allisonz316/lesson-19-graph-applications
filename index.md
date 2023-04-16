@@ -24,14 +24,13 @@ import networkx as nx
 
 # Mission 1: The Island of Secret Chambers
 
-**Informal Description**: You have just arrived on the island of secret chambers. Your mission is to travel to each secret chamber on the island. On the arrival of each chamber, a secret will be revealed. You must collect each secret before completing this level, as they are necessary for your next mission. A mission you won't survive without. Once a secret is revealed, your strength will grow. Use this to your advantage. This island is heavily guarded by gremlins that live on the paths. Choose carefully which path you might take first. It would be wise to save the most guarded path for last when your strength is at its peak. One last thing I shall mention before wishing you the best of luck on your journey is that your grandfather has passed down a sketchbook that includes drawings of the island. Protect this book at all costs and use it to your advantage. Good luck!
+**Informal Description**: You have just arrived on the island of secret chambers. Your mission is to travel to each secret chamber on the island. On the arrival of each chamber, a secret will be revealed. You must collect each secret before completing this level. Once a secret is revealed, your strength will grow. Use this to your advantage as the island is heavily guarded by gremlins that live on the paths. The good news is that your grandfather has passed down a sketchbook that includes drawings of the island. With the help of your grandfather's sketchbook, create a map of the secret chambers on the island as well as the gremlins that guard each path. Each node will represent a secret chamber, each edge will represent a path that can be taken, and each weight will represent the gremlins to be defeated on each path. Using this map, you must determine the order in which you seek each chamber by constructing a Minimum Spanning Tree of the island. Good luck and safe travels!
 
-> **Formal Description**: With the help of your grandfather's sketchbook, create a map of the secret chambers on the island as well as the gremlins that guard each path. Each node will represent a secret chamber, each edge will represent a path that can be taken, and each weight will represent the gremlins to be defeated on each path. Using this map, you must determine the order in which you seek each chamber by constructing a Minimum Spanning Tree of the island.
+> **Formal Description**:  
+>  * Input: An adjacency matrix for a weighted undirected graph G=(V,E) with edge weight w.
+>  * Output: The shortest path that visits each vertex and minimizes the total weight of all edges.
 
->  * Input: An adjacency matrix for a connected undirected graph G=(V,E) with edge weight w.
->  * Output: A minimum spanning tree of graph G.
-
-**Graph Problem/Algorithm**: [MST]
+**Graph Problem/Algorithm**: [MST/Prim's Algorithm]
 
 
 **Setup code**:
