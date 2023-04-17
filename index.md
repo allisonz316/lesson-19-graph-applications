@@ -80,7 +80,7 @@ plt.show()
 
 **Visualization**:
 
-![Image goes here](Relative image filename goes here)
+![A graph](Figure_1.png)
 
 **Solution code:**
 
