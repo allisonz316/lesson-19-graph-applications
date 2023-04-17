@@ -141,7 +141,7 @@ plt.show()
 * Path 17: Travel to secret chamber 16 from secret chamber 16
 * Path 18: Travel to secret chamber 17 from secret chamber 16
 * Path 19: Travel to secret chamber 13 from secret chamber 16
-This output is the list of edges in the MST. Following these paths in the correct order will minimize the number of gremlins you must defeat.
+> This output is the list of edges in the MST. Following these paths in the correct order will minimize the number of gremlins you must defeat.
 
 
 # Second Problem Title
