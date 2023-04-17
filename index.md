@@ -82,7 +82,7 @@ import networkx as nx
 import numpy as np
 
 Graph = [
-    [0, 2, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0,2,4,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     [2,0,5,6,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     [3,7,0,9,10,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     [4,6,9,0,13,2,5,6,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -121,26 +121,26 @@ plt.show()
 ```
 
 **Interpretation of Results**:
-Begin at secret chamber 0
-Path 1: Travel to secret chamber 1 from secret chamber 0
-Path 2: Travel to secret chamber 2 from secret chamber 0
-Path 3: Travel to secret chamber 3 from secret chamber 0
-Path 4: Travel to secret chamber 5 from secret chamber 3
-Path 5: Travel to secret chamber 8 from secret chamber 5
-Path 6: Travel to secret chamber 6 from secret chamber 5
-Path 7: Travel to secret chamber 4 from secret chamber 4
-Path 8: Travel to secret chamber 7 from secret chamber 3
-Path 9: Travel to secret chamber 10 from secret chamber 7
-Path 10: Travel to secret chamber 14 from secret chamber 7
-Path 11: Travel to secret chamber 12 from secret chamber 8
-Path 12: Travel to secret chamber 9 from secret chamber 10
-Path 13: Travel to secret chamber 11 from secret chamber 12
-Path 14: Travel to secret chamber 15 from secret chamber 13
-Path 15: Travel to secret chamber 19 from secret chamber 15
-Path 16: Travel to secret chamber 18 from secret chamber 15
-Path 17: Travel to secret chamber 16 from secret chamber 16
-Path 18: Travel to secret chamber 17 from secret chamber 16
-Path 19: Travel to secret chamber 13 from secret chamber 16
+* Begin at secret chamber 0
+* Path 1: Travel to secret chamber 1 from secret chamber 0
+* Path 2: Travel to secret chamber 2 from secret chamber 0
+* Path 3: Travel to secret chamber 3 from secret chamber 0
+* Path 4: Travel to secret chamber 5 from secret chamber 3
+* Path 5: Travel to secret chamber 8 from secret chamber 5
+* Path 6: Travel to secret chamber 6 from secret chamber 5
+* Path 7: Travel to secret chamber 4 from secret chamber 4
+* Path 8: Travel to secret chamber 7 from secret chamber 3
+* Path 9: Travel to secret chamber 10 from secret chamber 7
+* Path 10: Travel to secret chamber 14 from secret chamber 7
+* Path 11: Travel to secret chamber 12 from secret chamber 8
+* Path 12: Travel to secret chamber 9 from secret chamber 10
+* Path 13: Travel to secret chamber 11 from secret chamber 12
+* Path 14: Travel to secret chamber 15 from secret chamber 13
+* Path 15: Travel to secret chamber 19 from secret chamber 15
+* Path 16: Travel to secret chamber 18 from secret chamber 15
+* Path 17: Travel to secret chamber 16 from secret chamber 16
+* Path 18: Travel to secret chamber 17 from secret chamber 16
+* Path 19: Travel to secret chamber 13 from secret chamber 16
 
 
 
