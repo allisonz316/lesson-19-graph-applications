@@ -110,18 +110,37 @@ labels = nx.get_edge_attributes(G,'weight')
 nx.draw_networkx_edge_labels(G,pos=layout,edge_labels=labels)
 mst = tree.minimum_spanning_edges(G, algorithm="prim", data=False)
 edgelist = list(mst)
-print(sorted(sorted(e) for e in edgelist))
+print(edgelist)
 plt.show()
 ```
 
 **Output**
 
 ```
-[[0, 1], [0, 2], [0, 3], [3, 5], [3, 7], [4, 6], [5, 6], [5, 8], [7, 10], [8, 12], [9, 12], [10, 11], [10, 14], [12, 15], [13, 15], [15, 18], [15, 19], [16, 17], [16, 19]]
-
+[(0, 1), (0, 2), (0, 3), (3, 5), (5, 8), (5, 6), (6, 4), (3, 7), (7, 10), (10, 14), (8, 12), (12, 9), (10, 11), (12, 15), (15, 19), (15, 18), (19, 16), (16, 17), (15, 13)]
 ```
 
 **Interpretation of Results**:
+Begin at secret chamber 0
+Path 1: Travel to secret chamber 1 from secret chamber 0
+Path 2: Travel to secret chamber 2 from secret chamber 0
+Path 3: Travel to secret chamber 3 from secret chamber 0
+Path 4: Travel to secret chamber 5 from secret chamber 3
+Path 5: Travel to secret chamber 8 from secret chamber 5
+Path 6: Travel to secret chamber 6 from secret chamber 5
+Path 7: Travel to secret chamber 4 from secret chamber 4
+Path 8: Travel to secret chamber 7 from secret chamber 3
+Path 9: Travel to secret chamber 10 from secret chamber 7
+Path 10: Travel to secret chamber 14 from secret chamber 7
+Path 11: Travel to secret chamber 12 from secret chamber 8
+Path 12: Travel to secret chamber 9 from secret chamber 10
+Path 13: Travel to secret chamber 11 from secret chamber 12
+Path 14: Travel to secret chamber 15 from secret chamber 13
+Path 15: Travel to secret chamber 19 from secret chamber 15
+Path 16: Travel to secret chamber 18 from secret chamber 15
+Path 17: Travel to secret chamber 16 from secret chamber 16
+Path 18: Travel to secret chamber 17 from secret chamber 16
+Path 19: Travel to secret chamber 13 from secret chamber 16
 
 
 
