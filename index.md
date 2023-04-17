@@ -1,4 +1,4 @@
-# Title of Your Project
+# TVideo Game Problems
 
 **CISC320 Spring 2023 Lesson 14 - Graph Applications**
 
@@ -59,7 +59,7 @@ import networkx as nx
 
 # Skill Web
 
-**Many video games inclue a web of different skills you can get for your character.These are usually shown in the form of a web where getting one skill opens up several others. The goal here is to identify all of the skills that will be open to you once a certain skill is unlocked**: 
+**Many video games inclue a web of different skills you can get for your character. These are usually shown in the form of a web where getting one skill opens up several others. The goal here is to identify all of the skills that will be open to you once a certain skill is unlocked**: 
 
 > **This problem uses a depth first search to identify all nodes reachable in a directed graph from one specific node.**:
 >  * Input: A directed graph of skills and a specific skill
@@ -80,7 +80,7 @@ plt.show()
 
 **Visualization**:
 
-![Image goes here](Relative image filename goes here)
+![A graph](Figure_1.png)
 
 **Solution code:**
 
