@@ -74,7 +74,6 @@ plt.show()
 ![Image goes here](https://firebasestorage.googleapis.com/v0/b/first-project-df435.appspot.com/o/Figure_1.png?alt=media&token=9003e71a-9bb0-42db-941d-86abad2cbda1)
 
 **Solution code:**
-[[0, 1], [0, 2], [0, 3], [3, 5], [3, 7], [4, 6], [5, 6], [5, 8], [7, 10], [8, 12], [9, 12], [10, 11], [10, 14], [12, 15], [13, 15], [15, 18], [15, 19], [16, 17], [16, 19]]
 
 ```
 from networkx.algorithms import tree
@@ -118,6 +117,8 @@ plt.show()
 **Output**
 
 ```
+[[0, 1], [0, 2], [0, 3], [3, 5], [3, 7], [4, 6], [5, 6], [5, 8], [7, 10], [8, 12], [9, 12], [10, 11], [10, 14], [12, 15], [13, 15], [15, 18], [15, 19], [16, 17], [16, 19]]
+
 ```
 
 **Interpretation of Results**:
