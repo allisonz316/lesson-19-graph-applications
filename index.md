@@ -120,7 +120,7 @@ plt.show()
 [(0, 1), (0, 2), (0, 3), (3, 5), (5, 8), (5, 6), (6, 4), (3, 7), (7, 10), (10, 14), (8, 12), (12, 9), (10, 11), (12, 15), (15, 19), (15, 18), (19, 16), (16, 17), (15, 13)]
 ```
 
-**Interpretation of Results**:
+**Interpretation of Results**: This output is the list of edges in the MST. Following these paths in the correct order will minimize the number of gremlins you must defeat.
 * Begin at secret chamber 0
 * Path 1: Travel to secret chamber 1 from secret chamber 0
 * Path 2: Travel to secret chamber 2 from secret chamber 0
@@ -141,7 +141,7 @@ plt.show()
 * Path 17: Travel to secret chamber 16 from secret chamber 16
 * Path 18: Travel to secret chamber 17 from secret chamber 16
 * Path 19: Travel to secret chamber 13 from secret chamber 16
-> This output is the list of edges in the MST. Following these paths in the correct order will minimize the number of gremlins you must defeat.
+
 
 
 # Second Problem Title
