@@ -36,42 +36,43 @@ import networkx as nx
 **Setup code**:
 
 ```
+from networkx.algorithms import tree
 import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
 Graph = [
-    [0,2,4,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [2,0,5,6,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [3,7,0,9,10,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [4,6,9,0,13,2,5,6,0,0,0,0,0,0,0,0,0,0,0,0],
-    [0,7,10,13,0,5,3,6,7,0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,14,2,5,0,4,8,3,0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,5,3,4,0,0,17,0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,6,6,8,0,0,0,9,4,16,0,0,8,0,0,0,0,0],
-    [0,0,0,0,7,3,17,0,0,9,0,0,6,0,0,0,11,0,0,0],
-    [0,0,0,0,0,0,0,9,9,0,15,13,6,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,4,0,15,0,8,0,14,2,27,0,0,0,0],
-    [0,0,0,0,0,0,0,16,0,13,8,0,14,16,8,13,0,0,0,0],
-    [0,0,0,0,0,0,0,0,6,6,0,14,0,0,0,8,10,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0,14,16,0,0,0,7,10,0,13,9],
-    [0,0,0,0,0,0,0,8,0,0,2,8,0,0,0,10,0,14,15,17],
-    [0,0,0,0,0,0,0,0,0,0,27,13,8,7,10,0,17,0,4,2],
-    [0,0,0,0,0,0,0,0,11,0,0,0,10,10,0,17,0,3,0,5],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,14,0,3,0,9,0],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,13,15,4,0,9,0,14],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,9,17,2,5,0,14,0]]
+    [0, 7, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 11],
+    [7, 0, 4, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 9 ,0, 0, 0, 0, 0],
+    [0, 4, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 7, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 31, 0],
+    [0, 0, 0, 16, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [13, 0, 0, 0, 8, 0, 10, 0, 0, 0, 0, 11, 0, 0, 14, 0, 0, 19, 0, 0],
+    [0, 0, 0, 0, 0, 10, 0, 9, 0, 0, 0, 0, 0, 13, 0, 8, 7, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 9, 0, 2, 0, 0, 0, 0, 18, 0, 24, 0, 0, 16, 0],
+    [0, 0, 0, 0, 0, 0, 0, 2, 0, 3, 0, 0, 20, 0, 24, 0, 0, 0, 0, 0],
+    [0, 13, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 4, 0, 9, 0, 0, 0, 0, 0, 0, 0],
+    [12, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 9, 0, 12, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 13, 18, 0, 0, 0, 0, 12, 0, 4, 0, 0, 0, 0, 0],
+    [0, 9, 0, 1, 0, 14, 0, 0, 24, 0, 0, 0, 0, 4, 0, 5, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 8, 24, 0, 0, 0, 0, 0, 0, 0, 5, 0, 16, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 12, 0, 0],
+    [0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 21, 0],
+    [0, 0, 0, 31, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 17],
+    [11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0]]
 
 G = nx.from_numpy_array(np.matrix(Graph), create_using=nx.path_graph(4))
-layout = nx.spring_layout(G,scale=5)
-nx.draw(G, layout, node_size=700, with_labels=True, font_weight='bold',    font_size=15)
+layout = nx.circular_layout(G,scale=5)
+nx.draw(G, layout, node_size=300, with_labels=True, font_weight='bold',    font_size=10)
 labels = nx.get_edge_attributes(G,'weight')
-nx.draw_networkx_edge_labels(G,pos=layout,edge_labels=labels)
+nx.draw_networkx_edge_labels(G,pos=layout,edge_labels=labels, font_weight='bold',font_size=9)
 plt.show()
 ```
 
 **Visualization**:
 
-![Image goes here](https://firebasestorage.googleapis.com/v0/b/first-project-df435.appspot.com/o/Figure_1.png?alt=media&token=9003e71a-9bb0-42db-941d-86abad2cbda1)
+![Image goes here](https://firebasestorage.googleapis.com/v0/b/first-project-df435.appspot.com/o/Figure_1.png?alt=media&token=507e192f-eb01-4379-9a87-ec0b951f8ece)
 
 **Solution code:**
 
@@ -80,34 +81,33 @@ from networkx.algorithms import tree
 import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
-
 Graph = [
-    [0,2,4,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [2,0,5,6,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [3,7,0,9,10,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [4,6,9,0,13,2,5,6,0,0,0,0,0,0,0,0,0,0,0,0],
-    [0,7,10,13,0,5,3,6,7,0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,14,2,5,0,4,8,3,0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,5,3,4,0,0,17,0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,6,6,8,0,0,0,9,4,16,0,0,8,0,0,0,0,0],
-    [0,0,0,0,7,3,17,0,0,9,0,0,6,0,0,0,11,0,0,0],
-    [0,0,0,0,0,0,0,9,9,0,15,13,6,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,4,0,15,0,8,0,14,2,27,0,0,0,0],
-    [0,0,0,0,0,0,0,16,0,13,8,0,14,16,8,13,0,0,0,0],
-    [0,0,0,0,0,0,0,0,6,6,0,14,0,0,0,8,10,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0,14,16,0,0,0,7,10,0,13,9],
-    [0,0,0,0,0,0,0,8,0,0,2,8,0,0,0,10,0,14,15,17],
-    [0,0,0,0,0,0,0,0,0,0,27,13,8,7,10,0,17,0,4,2],
-    [0,0,0,0,0,0,0,0,11,0,0,0,10,10,0,17,0,3,0,5],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,14,0,3,0,9,0],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,13,15,4,0,9,0,14],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,9,17,2,5,0,14,0]]
+    [0, 7, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 11],
+    [7, 0, 4, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 9 ,0, 0, 0, 0, 0],
+    [0, 4, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 7, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 31, 0],
+    [0, 0, 0, 16, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [13, 0, 0, 0, 8, 0, 10, 0, 0, 0, 0, 11, 0, 0, 14, 0, 0, 19, 0, 0],
+    [0, 0, 0, 0, 0, 10, 0, 9, 0, 0, 0, 0, 0, 13, 0, 8, 7, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 9, 0, 2, 0, 0, 0, 0, 18, 0, 24, 0, 0, 16, 0],
+    [0, 0, 0, 0, 0, 0, 0, 2, 0, 3, 0, 0, 20, 0, 24, 0, 0, 0, 0, 0],
+    [0, 13, 0, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 4, 0, 9, 0, 0, 0, 0, 0, 0, 0],
+    [12, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 9, 0, 12, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 13, 18, 0, 0, 0, 0, 12, 0, 4, 0, 0, 0, 0, 0],
+    [0, 9, 0, 1, 0, 14, 0, 0, 24, 0, 0, 0, 0, 4, 0, 5, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 8, 24, 0, 0, 0, 0, 0, 0, 0, 5, 0, 16, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 12, 0, 0],
+    [0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 21, 0],
+    [0, 0, 0, 31, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 17],
+    [11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0]]
 
 G = nx.from_numpy_array(np.matrix(Graph), create_using=nx.path_graph(4))
-layout = nx.spring_layout(G,scale=5)
-nx.draw(G, layout, node_size=700, with_labels=True, font_weight='bold',    font_size=15)
+layout = nx.circular_layout(G,scale=5)
+nx.draw(G, layout, node_size=300, with_labels=True, font_weight='bold',    font_size=10)
 labels = nx.get_edge_attributes(G,'weight')
-nx.draw_networkx_edge_labels(G,pos=layout,edge_labels=labels)
+nx.draw_networkx_edge_labels(G,pos=layout,edge_labels=labels, font_weight='bold',font_size=9)
 mst = tree.minimum_spanning_edges(G, algorithm="prim", data=False)
 edgelist = list(mst)
 print(edgelist)
@@ -117,30 +117,30 @@ plt.show()
 **Output**
 
 ```
-[(0, 1), (0, 2), (0, 3), (3, 5), (5, 8), (5, 6), (6, 4), (3, 7), (7, 10), (10, 14), (8, 12), (12, 9), (10, 11), (12, 15), (15, 19), (15, 18), (19, 16), (16, 17), (15, 13)]
+[(0, 1), (1, 2), (2, 3), (3, 14), (14, 13), (14, 15), (15, 5), (5, 4), (5, 6), (6, 16), (6, 7), (7, 8), (8, 9), (9, 10), (10, 11), (11, 12), (0, 19), (16, 17), (7, 18)]
 ```
 
 **Interpretation of Results**: This output is the list of edges in the MST. Following these paths in the correct order will minimize the number of gremlins you must defeat.
 * Begin at secret chamber 0
 * Path 1: Travel to secret chamber 1 from secret chamber 0
-* Path 2: Travel to secret chamber 2 from secret chamber 0
-* Path 3: Travel to secret chamber 3 from secret chamber 0
-* Path 4: Travel to secret chamber 5 from secret chamber 3
-* Path 5: Travel to secret chamber 8 from secret chamber 5
-* Path 6: Travel to secret chamber 6 from secret chamber 5
-* Path 7: Travel to secret chamber 4 from secret chamber 4
-* Path 8: Travel to secret chamber 7 from secret chamber 3
-* Path 9: Travel to secret chamber 10 from secret chamber 7
-* Path 10: Travel to secret chamber 14 from secret chamber 7
-* Path 11: Travel to secret chamber 12 from secret chamber 8
-* Path 12: Travel to secret chamber 9 from secret chamber 10
-* Path 13: Travel to secret chamber 11 from secret chamber 12
-* Path 14: Travel to secret chamber 15 from secret chamber 13
-* Path 15: Travel to secret chamber 19 from secret chamber 15
-* Path 16: Travel to secret chamber 18 from secret chamber 15
-* Path 17: Travel to secret chamber 16 from secret chamber 16
+* Path 2: Travel to secret chamber 2 from secret chamber 1
+* Path 3: Travel to secret chamber 3 from secret chamber 2
+* Path 4: Travel to secret chamber 14 from secret chamber 3
+* Path 5: Travel to secret chamber 13 from secret chamber 14
+* Path 6: Travel to secret chamber 15 from secret chamber 14
+* Path 7: Travel to secret chamber 5 from secret chamber 15
+* Path 8: Travel to secret chamber 4 from secret chamber 5
+* Path 9: Travel to secret chamber 6 from secret chamber 5
+* Path 10: Travel to secret chamber 16 from secret chamber 6
+* Path 11: Travel to secret chamber 7 from secret chamber 6
+* Path 12: Travel to secret chamber 8 from secret chamber 7
+* Path 13: Travel to secret chamber 9 from secret chamber 8
+* Path 14: Travel to secret chamber 10 from secret chamber 9
+* Path 15: Travel to secret chamber 11 from secret chamber 10
+* Path 16: Travel to secret chamber 12 from secret chamber 11
+* Path 17: Travel to secret chamber 19 from secret chamber 0
 * Path 18: Travel to secret chamber 17 from secret chamber 16
-* Path 19: Travel to secret chamber 13 from secret chamber 16
+* Path 19: Travel to secret chamber 18 from secret chamber 7
 
 
 
