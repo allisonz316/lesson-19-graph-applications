@@ -160,7 +160,7 @@ nx.draw_networkx_edge_labels(G, pos=layout, edge_labels=labels, font_weight='bol
 
 **Visualization**:
 
-![problem3figure](/.png)
+![Problem 3 Figure](problem3figure.png)
 
 **Solution code:**
 
