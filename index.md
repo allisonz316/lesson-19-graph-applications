@@ -178,7 +178,17 @@ plt.show()
 
 **Interpretation of Results**:
 
+The output represents the shortest path you must take in order to get to "Another Castle" if you start from "Your House," found through the use of Dijkstra's Algorithm.
 
+1. "Your House" -> "Mush Town" (2)
+2. "Mush Town" -> "Flapside" (4)
+3. "Flapside" -> "Hole of 100 Tribulations" (2)
+4. "Hole of 100 Tribulations" -> "Flupside" (2)
+5. "Flupside" -> "Mildly Malevolent Magma Municipality" (11)
+6. "Mildly Malevolent Magma Municipality" -> "Old Donk City" (16)
+7. "Old Donk City" -> "Another Castle" (10)
+
+Total Path Weight: 47
 
 # Fourth Problem Title
 
