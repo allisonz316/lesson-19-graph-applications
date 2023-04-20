@@ -1,4 +1,4 @@
-# TVideo Game Problems
+# It's Dangerous to Code Alone: Graph This!
 
 **CISC320 Spring 2023 Lesson 14 - Graph Applications**
 
@@ -8,7 +8,7 @@ Group Members:
 * Dean Turner turnerde@udel.edu
 * Alexandra Croce acroce@udel.edu
 
-Description of project
+This set of problems takes various graphing algorithms and ties them together under a video game theme. It provides a variety of graphs and situations to be solved by four different algorithms: Depth-First Search, Breadth-First Search, Dijkstra's Algorithm, and Prim's Algorithm.
 
 ## Installation Code
 
