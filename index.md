@@ -284,21 +284,32 @@ The output represents the shortest path you must take in order to get to "Anothe
 
 Total Path Weight: 47
 
-# Fourth Problem Title
+# Fighting Game Combos
 
-**Informal Description**: 
+**Informal Description**: One of the core pillars of fighting games are combo systems that allow players to link together different moves to deal as much damage as possible to their opponents. 
+How combos work varies between games but the basic gist is that by doing varios moves in a specific order you can combo your opponant for more damage. this begs the question, how do I know what moves to use to create a combo? With many characts having upwards of 30 moves (and sometimes many more), it can be difficult to learn what moves to use to form a combo.
+
+One solution to this is to create a directed graph of moves that represents how moves can flow together. The nodes will be individual moves while the directed edges will represent which moves it can combo into. Then you can select a starting move and create a subgraph of only moves that can be comboed into. For an example I will use the character Sol Badguy from from the game Guilty Gear -Strive-.
+
+note: In this graph you could add weight to represent how much damage moves do in order to find the highest damage combo, however I elected not to for this example as it did not affect the graph.
+
 
 > **Formal Description**:
->  * Input:
->  * Output:
+>  * Input: A unweighted directed graph G=(V,E).
+>  * Output: A subgraph from a starting move representing what moves can be used to combo.
 
-**Graph Problem/Algorithm**: [DFS/BFS/SSSP/APSP/MST]
+**Graph Problem/Algorithm**: [BFS]  
 
 
 **Setup code**:
+from networkx.algorithms import tree
+import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
 
-```python
-```
+
+G = nx.Graph()
+G.add_edge(Your House", "Mush Town")
 
 **Visualization**:
 
