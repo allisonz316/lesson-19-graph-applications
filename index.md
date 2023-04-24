@@ -310,6 +310,8 @@ import numpy as np
 
 G = nx.DiGraph()
 
+# Note, some moves are named using fighting game notation, don't worry if it doesn't make sense
+# to you, just know that each node is an indivicual move
 # adding all edges
 G.add_edge("5P","2P")
 G.add_edge("5P","6P")
