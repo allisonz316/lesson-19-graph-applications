@@ -291,39 +291,171 @@ How combos work varies between games but the basic gist is that by doing varios 
 
 One solution to this is to create a directed graph of moves that represents how moves can flow together. The nodes will be individual moves while the directed edges will represent which moves it can combo into. Then you can select a starting move and create a subgraph of only moves that can be comboed into. For an example I will use the character Sol Badguy from from the game Guilty Gear -Strive-.
 
-note: In this graph you could add weight to represent how much damage moves do in order to find the highest damage combo, however I elected not to for this example as it did not affect the graph.
+note: In this graph you could add weight to represent how much damage moves do in order to find the highest damage combo, however I elected not to in this implementation.
 
 
 > **Formal Description**:
 >  * Input: A unweighted directed graph G=(V,E).
->  * Output: A subgraph from a starting move representing what moves can be used to combo.
+>  * Output: A subgraph of all the nodes accessible from source S
 
 **Graph Problem/Algorithm**: [BFS]  
 
 
 **Setup code**:
+```python
 from networkx.algorithms import tree
 import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
 
+G = nx.DiGraph()
 
-G = nx.Graph()
-G.add_edge(Your House", "Mush Town")
+# adding all edges
+G.add_edge("5P","2P")
+G.add_edge("5P","6P")
+G.add_edge("5P","6H")
+
+G.add_edge("5K","6S")
+G.add_edge("5K","6P")
+G.add_edge("5K","2D")
+G.add_edge("5K","Bandit\nRevolver")
+
+
+G.add_edge("c.S","f.S")
+G.add_edge("c.S","2S")
+G.add_edge("c.S","6S")
+G.add_edge("c.S","5H")
+G.add_edge("c.S","2H")
+G.add_edge("c.S","2D")
+G.add_edge("c.S","Volcanic\nViper S")
+G.add_edge("c.S","Volcanic\nViper H")
+
+G.add_edge("f.S","5H")
+G.add_edge("f.S","2H")
+G.add_edge("f.S","Bandit\nRevolver")
+
+G.add_edge("5H","Gunflame")
+G.add_edge("5H","Bandit\nRevolver")
+
+G.add_edge("2P","5P")
+G.add_edge("2P","6P")
+G.add_edge("2P","6H")
+
+G.add_edge("2K","6S")
+G.add_edge("2K","2D")
+
+G.add_edge("2S","5H")
+G.add_edge("2S","2H")
+G.add_edge("2S","Gunflame")
+G.add_edge("2S","Bandit\nBringer")
+
+G.add_edge("2H","Gunflame")
+G.add_edge("2H","Bandit\nBringer")
+
+G.add_edge("2D","Gunflame")
+G.add_edge("2D","Bandit\nRevolver")
+G.add_edge("2D","Bandit\nBringer")
+
+G.add_edge("6P","Bandit\nRevolver")
+
+G.add_edge("6S","Gunflame")
+G.add_edge("6S","Bandit\nRevolver")
+
+G.add_edge("6H Counter","6H")
+G.add_edge("6H Counter","Gunflame")
+
+G.add_edge("j.P","j.P")
+
+G.add_edge("j.K","j.D")
+G.add_edge("j.K","Bandit\nRevolver")
+
+G.add_edge("j.S","j.H")
+G.add_edge("j.S","j.D")
+G.add_edge("j.S","Bandit\nRevolver")
+G.add_edge("j.S","Bandit\nBringer")
+
+G.add_edge("j.H","j.D")
+G.add_edge("j.H","Bandit\nRevolver")
+G.add_edge("j.H","Bandit\nBringer")
+
+G.add_edge("j.D","Bandit\nRevolver")
+
+G.add_edge("Night Raid\nVortex","j.S")
+G.add_edge("Night Raid\nVortex","j.H")
+G.add_edge("Night Raid\nVortex","j.D")
+
+G.add_edge("Fafnir\nCounter", "6S")
+
+G.add_edge("Bandit\nRevolver", "Bandit\nRevolver Follow-up")
+
+G.add_node("Fafnir")
+G.add_node("Wild\nThrow")
+
+# Subsets for multipartite graphing
+G.nodes["Wild\nThrow"]["subset"] = "E"
+G.nodes["Fafnir"]["subset"] = "E"
+G.nodes["j.P"]["subset"] = "E"
+G.nodes["5P"]["subset"] = "E"
+G.nodes["2P"]["subset"] = "E"
+
+G.nodes["5K"]["subset"] = "D"
+G.nodes["c.S"]["subset"] = "D"
+G.nodes["2K"]["subset"] = "D"
+G.nodes["2S"]["subset"] = "D"
+G.nodes["j.K"]["subset"] = "D"
+G.nodes["j.S"]["subset"] = "D"
+G.nodes["Night Raid\nVortex"]["subset"] = "D"
+G.nodes["Fafnir\nCounter"]["subset"] = "D"
+G.nodes["6H Counter"]["subset"] = "D"
+
+G.nodes["f.S"]["subset"] = "C"
+G.nodes["5H"]["subset"] = "C"
+G.nodes["2H"]["subset"] = "C"
+G.nodes["2D"]["subset"] = "C"
+G.nodes["6P"]["subset"] = "C"
+G.nodes["6S"]["subset"] = "C"
+G.nodes["6H"]["subset"] = "C"
+G.nodes["j.H"]["subset"] = "C"
+G.nodes["j.D"]["subset"] = "C"
+
+G.nodes["Gunflame"]["subset"] = "B"
+G.nodes["Volcanic\nViper S"]["subset"] = "B"
+G.nodes["Volcanic\nViper H"]["subset"] = "B"
+G.nodes["Bandit\nRevolver"]["subset"] = "B"
+G.nodes["Bandit\nBringer"]["subset"] = "B"
+
+G.nodes["Bandit\nRevolver Follow-up"]["subset"] = "A"
+
+#This code plots the full graph
+plt.figure(figsize=(14,7))
+pos = nx.multipartite_layout(G, align="horizontal", scale=5)
+nx.draw(G, pos, node_color="red", node_size=1750,font_weight='bold', font_size=9, with_labels=True)
+```
 
 **Visualization**:
 
-![Image goes here](Relative image filename goes here)
+![Problem 4 Figure](Figure_4.png)
 
 **Solution code:**
 
 ```python
+#This code find all the nodes linked to the source (in this case f.S) and then graphs them"
+output = nx.bfs_tree(G, "f.S")
+print(output)
+nx.draw_planar(output, node_color="red", node_size=4000,font_weight='bold', font_size=11, with_labels=True)
+plt.show()
 ```
 
 **Output**
 
 ```
+("f.S", "2H")
+("f.S", "Bandit Revolver")
+("f.S", "5H")
+("2H", "Bandit Bringer")
+("Bandit Revolver", "Bandit Revolver Follow-up")
+("5H", "Gunflame")
 ```
 
 **Interpretation of Results**:
-
+These results are all of the moves that can be comboed into from the move f.S =, even moves that do not directly combo themselves
