@@ -145,15 +145,15 @@ plt.show()
 
 
 
-# Skill Web
+# Mission 2: Depth of a Map
 
-**Many video games inclue a web of different skills you can get for your character. These are usually shown in the form of a web where getting one skill opens up several others. The goal here is to identify all of the skills that will be open to you once a certain skill is unlocked**: 
+**Informal Description**: You are given a map of locations for your next mission. It's a bit crowded as it's presented now, however, and you're not entirely sure how to make sense of it all. You know you need to start from Your House, obviously...but you still need to figure out how the rest of the locations connect to one another. Perhaps a certain type of "traversal" will help...?
 
-> **This problem uses a depth first search to identify all nodes reachable in a directed graph from one specific node.**:
->  * Input: A directed graph of skills and a specific skill
->  * Output: A list of reachable skills from that specific skill
+> **Formal Description**:
+>  * Input: A weighted, undirected graph G, with V vertices and E edges, and a specified source vertex S
+>  * Output: The tree resulting from a depth-first traversal of G
 
-**Graph Problem/Algorithm**: DFS
+**Graph Problem/Algorithm**: [DFS]
 
 
 **Setup code**:
@@ -201,8 +201,8 @@ G.add_edge("Doomy Mansion", "The Belowthere", weight=9)
 G.add_edge("Sea Dish\nGalaxy", "Polychromatic\nPavement", weight=13)
 G.add_edge("Old Donk City", "Mildly Malevolent\nMagma Municipality", weight=16)
 G.add_edge("Old Donk City", "The Belowthere", weight=18)
-G.add_edge("Old Donk City", "END\nAnother Castle", weight=10)
-G.add_edge("The\nActual Moon", "END\nAnother Castle", weight=15)
+G.add_edge("Old Donk City", "Another Castle", weight=10)
+G.add_edge("The\nActual Moon", "Another Castle", weight=15)
 
 plt.figure(figsize=(16,8))
 layout = nx.shell_layout(G, rotate=0)
@@ -227,11 +227,12 @@ plt.show()
 **Output**
 
 ```
-['START\nYour House', 'Mush Town', "Luis' Manor", 'The Belowthere', 'Doomy Mansion', 'Blister Tower', 'Cosmic\nObservatory', 'Breezy Backyard\nGalaxy', 'Sea Dish\nGalaxy', 'Star Street', 'The\nActual Moon', 'Polychromatic\nPavement', 'END\nAnother Castle', 'Old Donk City', 'Mildly Malevolent\nMagma Municipality', 'Flupside', 'Flapside', 'Hole of 100\nTribulations', 'Wet Wet Oasis', 'Bagel Prarie', 'LegumeLegume\nKingdom', 'Dinosaur Island', 'Dolphin Island', 'Scoundrel Harbor', 'The\nOther Castle']
+['START\nYour House', 'Mush Town', "Luis' Manor", 'The Belowthere', 'Doomy Mansion', 'Blister Tower', 'Cosmic\nObservatory', 'Breezy Backyard\nGalaxy', 'Sea Dish\nGalaxy', 'Star Street', 'The\nActual Moon', 'Polychromatic\nPavement', 'Another Castle', 'Old Donk City', 'Mildly Malevolent\nMagma Municipality', 'Flupside', 'Flapside', 'Hole of 100\nTribulations', 'Wet Wet Oasis', 'Bagel Prarie', 'LegumeLegume\nKingdom', 'Dinosaur Island', 'Dolphin Island', 'Scoundrel Harbor', 'The\nOther Castle']
 ```
 
 **Interpretation of Results**:
 
+The output represents a tree resulting from a depth-first traversal of the initial graph. The starting point is "Your House," and the displayed output is a list of visited nodes in order of the depth-first traversal.
 
 
 # Mission 3: Let's-a-Go (along the shortest path possible)
@@ -334,7 +335,7 @@ The output represents the shortest path you must take in order to get to "Anothe
 
 Total Path Weight: 47
 
-# Fighting Game Combos
+# Mission 4: Fighting Game Combos
 
 **Informal Description**: One of the core pillars of fighting games are combo systems that allow players to link together different moves to deal as much damage as possible to their opponents. 
 How combos work varies between games but the basic gist is that by doing varios moves in a specific order you can combo your opponant for more damage. this begs the question, how do I know what moves to use to create a combo? With many characts having upwards of 30 moves (and sometimes many more), it can be difficult to learn what moves to use to form a combo.
